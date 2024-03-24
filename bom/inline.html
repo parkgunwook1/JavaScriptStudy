@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+<!-- head에 script를 넣으면 이벤트가 클릭되면 null을 발생한다.
+     이유는 html이 읽히지 않았는데, 스크립트 파일을 읽어오기 때문이다.
+     
+     window.onload를 사용하면 html 페이지가 다 읽히고 스크립트가 실행된다.  
+
+     head 영역이 아닌, body 끝에 script를 넣어주면 window.onload가 필요없기 때문에, body 끝 영역에 넣어주자.
+     성능도 body 영역 아래에 넣는것이 좋다.
+    
+     <script>
+        window.onload = function() {
+            var hw = document.getElementById('hw');
+            hw.addEventListener('click' , function() {
+                alert('Hello world');
+            })
+        }
+    </script>
+-->
+</head>
+
+<html>
+    <body>
+        <!-- inLine 방식은 정보 + 제어이기 때문에 유지보수 및 검색엔진에 안좋다. script 태그를 사용하자 -->
+        <input type="button" id="hw" value="Hello world" />
+
+        <script src="./script.js"></script>
+    </body>
+</html>

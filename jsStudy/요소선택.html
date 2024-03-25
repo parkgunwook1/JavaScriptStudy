@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소선택</title>
+</head>
+<body>
+
+    <h1>HTML 요소에 접근하기(해당 요소객체 가져오기)</h1>
+
+    <h3>아이디로 가져오기</h3>
+
+    <div id="area1" class="area"></div>
+    <button onclick="accessId();">아이디로 접근</button>
+
+    <br><br>
+
+    <div id="area2" class="area" style="background-color: yellow;"></div>
+    <button onclick="accesId2">클릭마다 색 변경</button>
+
+
+    <h3>태그명으로 접근하기</h3>
+    <ul>
+        <li>목록1</li>
+        <li>목록2</li>
+        <li>목록3</li>
+        <li>목록4</li>
+        <li>목록5</li>
+    </ul>
+
+    <button onclick="accessTagName()">태그명으로 접근</button>
+
+    <h3>3 name 속성값으로 접근하기</h3>
+    <form action="">
+        <fieldset>
+            <legend>취미</legend>
+
+            <input type="checkbox" name="hobby" value="game" id="hooby1">
+            <label for="hobby1">게임</label>
+            <input type="checkbox" name="hobby" value="music" id="hooby2">
+            <label for="hobby2">음악</label>
+            <input type="checkbox" name="hobby" value="sing" id="hooby3">
+            <label for="hobby3">노래</label>
+            
+            <br>
+            <input type="checkbox" name="hobby" value="read" id="hooby4">
+            <label for="hobby4">독서</label>
+            <input type="checkbox" name="hobby" value="movie" id="hooby5">
+            <label for="hobby5">영화</label>
+            <input type="checkbox" name="hobby" value="sport" id="hooby6">
+            <label for="hobby6">운동</label>
+        </fieldset>
+    </form>
+
+    <br>
+    <div id="area3" class="area"></div>
+    <button onclick="acessName()">name으로 접근</button>
+    <br>
+
+    <h3>4 클래스명으로 접근하기</h3>
+    <div class="test"></div>
+    <p class="test"></p>
+    <ul class="test">
+        <li></li>
+        <li></li>
+    </ul>
+    <pre class="test test1"></pre>
+
+    <button onclick="accesClass();">class로 접근</button>
+
+    <script src="./요소선택.js"></script>
+    
+</body>
+</html>

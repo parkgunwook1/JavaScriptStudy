@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 
+    "window"
+        - 자바스크립트의 내장 객체로 브라우저창이 열릴 때마다 딱 하나씩 만들어지는 객체 브라우저 창안에 존재하는
+          모든 요소들의 최상위 객체이다. 
+        
+    "document"
+        - 웹 문서(html) 마다 하나씩 만들어지는 객체이다. HTML 문서에 대한 정보들을 가지고 있다.
+    -->
+
+    <h2> 데이터를 출력하는 기본 구문</h2>
+    
+    <script>
+        // window.alert("알림창에 출력할 문구");
+        // window.console.log("콘솔창에 출력할 문구");
+        // document.write("화면에 출력할 문구");
+    </script>
+
+    <button onclick="documentWriter()">화면에 출력하기</button>
+    <script>
+        function documentWriter(){
+            document.write("document write");
+            document.write("<b>볼드처리</b>");
+            // 화면에 출력할 문자열에 html 태그가 있을 경우 진사 html 태그로 해석되어서 보여줌
+        }
+    </script>
+
+    <h3>선택한 요소 : innerHTML/innerText = 해당요소에 출력할 문구</h3>
+    <div class="area" id="area1">
+        자바스크립트에서 요소 안의 값을 가지고 온다거나 변경하고자할때 
+        innerHTML, innerText 라는 속성에 접근하면 된다.
+    </div>
+
+    <button onclick="tagValue();">확인</button>
+    <script>
+        function tagValue() {
+            // 특정 요소의 값을 가지고 온다거나 변경하고자 할때는 해당 요소객체를 가져와서 변수에 담아둘것.
+            var divE1 = document.getElementById("area1"); // id 요소 area1인 요소를 찾은 후 divE1 변수에 저장
+
+            console.log(divE1); // 요소 객체를 잘가져왔으면 에러가 안난다.
+            console.dir(divE1); // 해당 값의 디렉토리 구조를 통해 접근 가능한 모든 속성을 확인할 수 있다.
+
+            console.log(divE1.id); // 아이디 값
+            console.log(divE1.tagName); // 요소의 태그명
+
+            console.log(divE1.innerHTML); // 요소 내부의 content 영역값을 html 코드 포함해서 가져온다.
+            console.log(divE1.innerText); // 요소 내부의 content 영역값중 텍스트만 포함해서 가져온다.
+
+            // 위처럼 속성에 직접 접근하여 값을 가지고오는것도 가능하지만, 직접 접근해서 값을 변경하는것도 가능하다.
+
+            console.log(divE1.innerHTML = "<b>innerHTML로 속성값을 변경함!</b>");
+            divE1.innerText = "<b>innerHTML로 속성값을 변경함</b>";
+
+            // innerHTML로 변경하면 출력할 문구에 HTML 태그 포함시 "태그"로 인식
+            // innerText로 변경하면 출력할 문구에 html 태그 포함시 "문자열"로 인식
+        }
+    </script>
+
+
+    <input type="button" value="alert" onclick="alertfnc();" />
+
+    <!-- "confirm" 호출 시 질문내용과 확인 및 취소가 존재하는 알림창 발생한다.
+                   확인을 누르면 true, 취소를 누르면 false를 반환한다.
+        . -->
+    <input type="button" value="confirm" onclick="func_confirm()" />
+
+    <button onclick="testConfirm();">클릭</button>
+    <div class="area" id="area2">ㅁㄴㅇㅁㄴ</div>
+    <script>
+            function testConfirm() {
+                var result = confirm("졸리면 확인, 아니면 취소를 누르세요");
+
+                console.log(result);
+
+                var divE2 = document.getElementById("area2");
+                if(result) {
+                    console.log(divE2.innerHTML = "<h2>너무 졸립니다.</h2>");
+                } else {
+                    console.log(divE2.innerHTML = "<h2>너무 괜찮습니다. </h2>");
+                }
+            }
+    </script>
+
+    <!-- 
+        "prompt" 
+                질문내용과 입력할 수 있는 텍스트상자와 확인/취소 버튼이 보여지는 알림창 발생
+                    - 확인버튼 클릭시 택스트상자에 입력되어있는 값이 반환
+                    - 취소버튼 클릭시 null 값이 반환        
+    -->
+
+    <button onclick="testPrompt();">클릭</button>
+    <div class="area" id="area3"></div>
+
+    <script>
+        function testPrompt() {
+            var name = prompt("당신의 이름은 무엇입니까?");
+            var age = prompt("당신의 나이는 몇 살입니까?");
+
+            var divEl = document.getElementById("area3");
+
+            divEl.innerHTML = "<b>당신은 "+age+ " 살의 "+name +" 님 이군요. 반갑습니다.</b>"
+        }
+    </script>
+
+    <input type="button" value="prompt" onclick="func_prompt()" />
+
+    <script src="./script.js"></script>
+
+    <!-- 
+        "location" 
+        
+        location 객체는 문서의 주소와 관련된 객체로 Window 객체의 프로퍼티이다.
+        이 객체를 이용해서 윈도우의 문서 URL을 변경할 수 있고, 문서의 위치와 관련해서 다양한 정보를 얻을 수 있다.
+    -->
+    <script>
+        console.log(location.host, location.hostname , location.href);
+    </script>
+
+    <!-- 
+        location은 현재 url 주소와 프로토콜 등을 알아볼수도 있지만,
+        url 변경 및 reload도 할 수 있는 기능이 있다.
+    -->
+    <script>
+        if(a < b) {
+            location.reload(); 
+        } else {
+            console.log(location.reload);
+        }
+        // 비동기 통신으로 서버에게 데이터를 얻어온다면 클라이언트에게 바로 보여주기 위해서도 reload를 사용한다.
+    </script>
+
+    <!--
+        "navigator"
+        브라우저의 정보를 제공하는 객체다. 주로 호환성 문제등을 위해서 사용한다.
+        아래 명령을 통해서 이 객체의 모든 프로퍼티를 열람할 수 있다.
+    -->
+    <script>
+        console.dir(navigator.appName);
+        console.dir(navigator.appVersion);
+    </script>
+
+    <h3>선택한 input 요소.vlaue</h3>
+
+    아이디 : <input type="text" id="userId" value="rud"> <br>
+    비밀번호 : <input type="password" id="userPwd"> <br>
+</body>
+</html>

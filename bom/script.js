@@ -81,3 +81,9 @@ function tagValue() {
     // innerHTML로 변경하면 출력할 문구에 HTML 태그 포함시 "태그"로 인식
     // innerText로 변경하면 출력할 문구에 html 태그 포함시 "문자열"로 인식
 }
+
+function documentWriter(){
+    document.write("document write");
+    document.write("<b>볼드처리</b>");
+    // 화면에 출력할 문자열에 html 태그가 있을 경우 진사 html 태그로 해석되어서 보여줌
+}

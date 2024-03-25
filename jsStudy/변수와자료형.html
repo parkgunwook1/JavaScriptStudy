@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>변수와 자료형</h1>
+    <h3> 변수 선언 위치에 따른 전역변수/지역변수</h3>
+    <pre>
+        &lt;script&gt;
+        let 변수명; //전역변수(global)
+        const 변수명; // 상수(값을 할당시 바꿀수없음)
+
+        var 변수명; // 전역변수(global) 단, 과거에 쓰이던 키워드
+
+        변수명; //전역변수(global)
+
+        function 함수명() {
+            var 변수명; // 지역변수(local)
+
+            변수명; //지역변수(local) 혹은 전역변수(global)
+        }
+        var변수 문제점이 많아서 let, const 대체됨
+        but, 아직도 많은 스크립트에서 var가 사용되고 있음
+        &lt;/script&gt;
+    </pre>
+        <hr>
+
+        <h3>자료형</h3>
+
+        <p>
+            변수 선언시 자료형을 별도로 지정하지 않음.(단, 자료형의 개념이 없는것 아님)<br>
+            => 변수에 대입되는 값에 따라서 자료형이 결정된다.
+        </p>
+
+        <h4>자바스크립트의 자료형</h4>
+        <ul>
+            <li>String(문자열)</li>
+            <li>number(숫자)</li>
+            <li>boolean(논리값)</li>
+            <li>object(객체)</li>
+
+            <li>function(함수)</li>
+            <li>undefind(초기화가 안된 변수)</li>
+        </ul>
+
+        <button onclick="typeTest();">자료형 테스트</button>
+        <div id="area" class="area"></div>
+
+     <script src="./변수와자료형.js"></script>
+</body>
+</html>

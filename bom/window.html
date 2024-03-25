@@ -40,29 +40,6 @@
     </div>
 
     <button onclick="tagValue();">확인</button>
-    <script>
-        function tagValue() {
-            // 특정 요소의 값을 가지고 온다거나 변경하고자 할때는 해당 요소객체를 가져와서 변수에 담아둘것.
-            var divE1 = document.getElementById("area1"); // id 요소 area1인 요소를 찾은 후 divE1 변수에 저장
-
-            console.log(divE1); // 요소 객체를 잘가져왔으면 에러가 안난다.
-            console.dir(divE1); // 해당 값의 디렉토리 구조를 통해 접근 가능한 모든 속성을 확인할 수 있다.
-
-            console.log(divE1.id); // 아이디 값
-            console.log(divE1.tagName); // 요소의 태그명
-
-            console.log(divE1.innerHTML); // 요소 내부의 content 영역값을 html 코드 포함해서 가져온다.
-            console.log(divE1.innerText); // 요소 내부의 content 영역값중 텍스트만 포함해서 가져온다.
-
-            // 위처럼 속성에 직접 접근하여 값을 가지고오는것도 가능하지만, 직접 접근해서 값을 변경하는것도 가능하다.
-
-            console.log(divE1.innerHTML = "<b>innerHTML로 속성값을 변경함!</b>");
-            divE1.innerText = "<b>innerHTML로 속성값을 변경함</b>";
-
-            // innerHTML로 변경하면 출력할 문구에 HTML 태그 포함시 "태그"로 인식
-            // innerText로 변경하면 출력할 문구에 html 태그 포함시 "문자열"로 인식
-        }
-    </script>
 
 
     <input type="button" value="alert" onclick="alertfnc();" />
@@ -74,20 +51,6 @@
 
     <button onclick="testConfirm();">클릭</button>
     <div class="area" id="area2">ㅁㄴㅇㅁㄴ</div>
-    <script>
-            function testConfirm() {
-                var result = confirm("졸리면 확인, 아니면 취소를 누르세요");
-
-                console.log(result);
-
-                var divE2 = document.getElementById("area2");
-                if(result) {
-                    console.log(divE2.innerHTML = "<h2>너무 졸립니다.</h2>");
-                } else {
-                    console.log(divE2.innerHTML = "<h2>너무 괜찮습니다. </h2>");
-                }
-            }
-    </script>
 
     <!-- 
         "prompt" 
@@ -99,20 +62,9 @@
     <button onclick="testPrompt();">클릭</button>
     <div class="area" id="area3"></div>
 
-    <script>
-        function testPrompt() {
-            var name = prompt("당신의 이름은 무엇입니까?");
-            var age = prompt("당신의 나이는 몇 살입니까?");
-
-            var divEl = document.getElementById("area3");
-
-            divEl.innerHTML = "<b>당신은 "+age+ " 살의 "+name +" 님 이군요. 반갑습니다.</b>"
-        }
-    </script>
 
     <input type="button" value="prompt" onclick="func_prompt()" />
 
-    <script src="./script.js"></script>
 
     <!-- 
         "location" 
@@ -149,7 +101,13 @@
 
     <h3>선택한 input 요소.vlaue</h3>
 
-    아이디 : <input type="text" id="userId" value="rud"> <br>
+    아이디 :  <input type="text" id="userId" value="rud"> <br>
     비밀번호 : <input type="password" id="userPwd"> <br>
+
+    <button onclick="testInput();" id="test-btn" data-hoho="data태그 테스트">input 클릭</button>
+
+    <script src="./script.js"></script>
+
+   
 </body>
 </html>
